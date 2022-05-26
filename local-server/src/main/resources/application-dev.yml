@@ -1,0 +1,16 @@
+
+
+spring:
+  # JPA配置
+  jpa:
+    show-sql: true
+    format-sql: true
+
+# 日志配置
+logging:
+  level:
+    ROOT: INFO
+    "[cn.springseed]": DEBUG    
+    "[org.springframework.security]": DEBUG
+    "[org.springframework.web]": DEBUG
+
