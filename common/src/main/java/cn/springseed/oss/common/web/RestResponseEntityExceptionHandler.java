@@ -1,4 +1,4 @@
-package cn.springseed.oss.local.config;
+package cn.springseed.oss.common.web;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -8,7 +8,6 @@ import org.springframework.web.context.request.WebRequest;
 
 import cn.springseed.common.typeof.TypeOf;
 import cn.springseed.oss.common.util.OSSRuntimeException;
-import cn.springseed.oss.common.web.ErrorResponse;
 import lombok.extern.slf4j.Slf4j;
 
 /**
@@ -41,7 +40,7 @@ public class RestResponseEntityExceptionHandler {
     }
 
     @ExceptionHandler({ Exception.class })
-    public ResponseEntity<Object> handleInternal(final RuntimeException ex, final WebRequest request) {
+    public ResponseEntity<Object> handleInternal(final Exception ex, final WebRequest request) {
         log.error("服务异常", ex);
         return ResponseEntity.internalServerError().body(ErrorResponse.of(ex));
     }

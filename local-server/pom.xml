@@ -14,8 +14,8 @@
     <name>SpringSeed : OSS : Local : Server</name>
     <description>基于本地文件系统的存储服务</description>
 
-   <dependencies>
-           <dependency>
+    <dependencies>
+        <dependency>
             <groupId>cn.springseed.oss</groupId>
             <artifactId>common</artifactId>
             <version>${project.version}</version>
@@ -51,7 +51,7 @@
             <artifactId>lombok</artifactId>
             <scope>provided</scope>
         </dependency>
-        
+
         <dependency>
             <groupId>mysql</groupId>
             <artifactId>mysql-connector-java</artifactId>
@@ -82,5 +82,5 @@
             <scope>test</scope>
         </dependency>
     </dependencies>
-  
+
 </project>

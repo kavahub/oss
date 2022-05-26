@@ -90,12 +90,9 @@ public class StorageService {
                 // 存储文件元数据
                 final Metadata metadata = metadataSaveService.save(fileName, Metadata.joinPath(filePath), fileSize);
                 // 存储文件
-                final long size = Files.copy(fileData, destinationPath.resolve(metadata.getId()),
+                Files.copy(fileData, destinationPath.resolve(metadata.getId()),
                         StandardCopyOption.REPLACE_EXISTING);
-                if (log.isDebugEnabled()) {
-                    log.debug("Store file completed, object id: {}, file path: {}, file size: {}", metadata.getId(),
-                            metadata.getFullPath(), size);
-                }
+ 
                 return metadata.getId();
             }
 

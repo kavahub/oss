@@ -1,0 +1,9 @@
+
+# 日志配置
+logging:
+  level:
+    ROOT: INFO
+    "[cn.springseed]": DEBUG    
+    "[org.springframework.security]": DEBUG
+    "[org.springframework.web]": DEBUG
+

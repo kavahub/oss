@@ -28,8 +28,10 @@ flush privileges;
 
 #### 打包
 
+编译，测试，打包：
+
 ```
-mvn clean package spring-boot:repackage
+mvn clean install spring-boot:repackage
 ```
 
 #### 运行

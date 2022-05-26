@@ -18,9 +18,9 @@ import org.springframework.http.MediaType;
 import org.springframework.mock.web.MockMultipartFile;
 import org.springframework.test.context.junit.jupiter.SpringExtension;
 
+import cn.springseed.oss.OSSLocalApplication;
 import cn.springseed.oss.common.util.OSSRuntimeException;
 import cn.springseed.oss.common.util.OSSRuntimeException.NotFound;
-import cn.springseed.oss.local.OSSLocalApplication;
 import cn.springseed.oss.local.SpringseedActiveProfiles;
 import cn.springseed.oss.local.config.OSSProperties;
 import cn.springseed.oss.local.metadata.Metadata;

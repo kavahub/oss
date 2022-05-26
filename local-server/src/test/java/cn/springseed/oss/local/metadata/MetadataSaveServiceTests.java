@@ -9,9 +9,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit.jupiter.SpringExtension;
 
+import cn.springseed.oss.OSSLocalApplication;
 import cn.springseed.oss.common.util.OSSRuntimeException;
 import cn.springseed.oss.common.util.OSSRuntimeException.BadRequest;
-import cn.springseed.oss.local.OSSLocalApplication;
 import cn.springseed.oss.local.SpringseedActiveProfiles;
 
 /**

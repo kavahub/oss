@@ -23,7 +23,7 @@ import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.util.LinkedMultiValueMap;
 import org.springframework.util.MultiValueMap;
 
-import cn.springseed.oss.local.OSSLocalApplication;
+import cn.springseed.oss.OSSLocalApplication;
 import cn.springseed.oss.local.SpringseedActiveProfiles;
 
 /**

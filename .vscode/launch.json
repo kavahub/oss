@@ -6,10 +6,28 @@
     "configurations": [
         {
             "type": "java",
+            "name": "OSSMinio-dev",
+            "request": "launch",
+            "console": "internalConsole",
+            "mainClass": "cn.springseed.oss.OSSMinioApplication",
+            "projectName": "minio-server",
+            "vmArgs": "-Dspring.profiles.active=dev"
+        },
+        {
+            "type": "java",
+            "name": "OSSMinio-pro",
+            "request": "launch",
+            "console": "internalConsole",
+            "mainClass": "cn.springseed.oss.OSSMinioApplication",
+            "projectName": "minio-server",
+            "vmArgs": "-Dspring.profiles.active=pro"
+        },        
+        {
+            "type": "java",
             "name": "OSSLocal-dev",
             "request": "launch",
             "console": "internalConsole",
-            "mainClass": "cn.springseed.oss.local.OSSLocalApplication",
+            "mainClass": "cn.springseed.oss.OSSLocalApplication",
             "projectName": "local-server",
             "vmArgs": "-Dspring.profiles.active=dev"
         },
@@ -18,7 +36,7 @@
             "name": "OSSLocal-pro",
             "request": "launch",
             "console": "internalConsole",
-            "mainClass": "cn.springseed.oss.local.OSSLocalApplication",
+            "mainClass": "cn.springseed.oss.OSSLocalApplication",
             "projectName": "local-server",
             "vmArgs": "-Dspring.profiles.active=pro"
         }

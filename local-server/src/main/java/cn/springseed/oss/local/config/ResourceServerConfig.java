@@ -6,7 +6,7 @@ import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 
 /**
- * TODO
+ * 资源服务器
  *  
  * @author PinWei Wan
  * @since 1.0.0
