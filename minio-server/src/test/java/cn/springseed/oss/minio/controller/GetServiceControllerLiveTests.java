@@ -115,13 +115,13 @@ public class GetServiceControllerLiveTests {
         assertThat(url.getQuery()).isNotBlank();
     }
 
-    @Test
-    @WithMockUser(username = "test")
-    public void givenNoRoles_whenGetObject_thenForbidden() throws Exception {
-        mvc.perform(get(BASE_URL + "/objects/data/{bucket}/{objectId}", Util.TEST_BUCKET, "wrongobjectid"))
-                .andDo(print())
-                .andExpect(status().isForbidden());
-    }
+    // @Test
+    // @WithMockUser(username = "test")
+    // public void givenNoRoles_whenGetObject_thenForbidden() throws Exception {
+    //     mvc.perform(get(BASE_URL + "/objects/data/{bucket}/{objectId}", Util.TEST_BUCKET, "wrongobjectid"))
+    //             .andDo(print())
+    //             .andExpect(status().isForbidden());
+    // }
 
     
 }

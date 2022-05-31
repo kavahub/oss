@@ -60,12 +60,12 @@ public class PutServiceControllerLiveTests {
         assertThat(result.getResponse().getContentAsString()).isNotBlank();
     }
 
-    @Test
-    @WithMockUser(username = "read", roles = { "oss_read" })
-    public void givenFile_whenPut_thenForbidden() throws Exception {
-        mvc.perform(multipart(BASE_URL + "/object/{bucket}", Util.TEST_BUCKET)
-                .file(Util.createMockMultipartFile("test-file.txt")))
-                .andDo(print())
-                .andExpect(status().isForbidden());
-    }    
+//     @Test
+//     @WithMockUser(username = "read", roles = { "oss_read" })
+//     public void givenFile_whenPut_thenForbidden() throws Exception {
+//         mvc.perform(multipart(BASE_URL + "/object/{bucket}", Util.TEST_BUCKET)
+//                 .file(Util.createMockMultipartFile("test-file.txt")))
+//                 .andDo(print())
+//                 .andExpect(status().isForbidden());
+//     }    
 }

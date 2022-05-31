@@ -18,5 +18,5 @@ import lombok.Setter;
 @Setter
 @ConfigurationProperties("s8d.oss.local")
 public class OSSProperties {
-    private Path uploadRootPath = Paths.get(System.getProperty("user.home"), ".springseed", "oss");
+    private Path uploadRootPath = Paths.get(System.getProperty("user.home"), ".s8d", "oss");
 }

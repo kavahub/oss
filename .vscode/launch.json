@@ -6,6 +6,13 @@
     "configurations": [
         {
             "type": "java",
+            "name": "Launch Util",
+            "request": "launch",
+            "mainClass": "cn.springseed.oss.minio.Util",
+            "projectName": "minio-server"
+        },
+        {
+            "type": "java",
             "name": "OSSMinio-dev",
             "request": "launch",
             "console": "internalConsole",
@@ -21,7 +28,7 @@
             "mainClass": "cn.springseed.oss.OSSMinioApplication",
             "projectName": "minio-server",
             "vmArgs": "-Dspring.profiles.active=pro"
-        },        
+        },
         {
             "type": "java",
             "name": "OSSLocal-dev",

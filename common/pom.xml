@@ -6,11 +6,12 @@
     <parent>
         <groupId>cn.springseed.oss</groupId>
         <artifactId>parent</artifactId>
-        <version>1.0.0</version>
+        <version>1</version>
     </parent>
 
     <artifactId>common</artifactId>
     <packaging>jar</packaging>
+    <version>1.0.0</version>
     <name>SpringSeed : OSS : Common</name>
     <description>通用模块</description>
 

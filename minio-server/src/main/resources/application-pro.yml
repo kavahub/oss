@@ -1,5 +1,15 @@
-# 日志配置
-logging:
-  level:
-    ROOT: INFO
+s8d.oss:
+  minio.server:
+    endpoint: minio
+    port: 8001
+    accessKey: admin
+    secretKey: 12345678
+
+spring:
+  security:
+    oauth2:
+      resourceserver:
+        jwt:
+          jwk-set-uri: http://springboot-embedded-server:9000/auth/realms/springseeds/protocol/openid-connect/certs
+
 

@@ -4,10 +4,9 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.util.UUID;
 
+import org.apache.tika.Tika;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
-import org.springframework.http.MediaType;
-import org.springframework.http.MediaTypeFactory;
 import org.springframework.util.StringUtils;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -41,11 +40,12 @@ public class PutServiceController {
      * @param file
      * @param reqObjectId 对象ID，如果不指定，自动生成
      * @return 对象ID
+     * @throws IOException
      */
     @PostMapping("/object/{bucket}")
     @ResponseStatus(HttpStatus.CREATED)
     public String putObject(@PathVariable("bucket") String bucket, @RequestParam("file") MultipartFile file,
-            @RequestParam(value = "objectId", required = false) String reqObjectId) {
+            @RequestParam(value = "objectId", required = false) String reqObjectId) throws IOException {
 
         if (file.isEmpty()) {
             throw OSSRuntimeException.fileNotExist();
@@ -56,7 +56,8 @@ public class PutServiceController {
             throw OSSRuntimeException.fileNameInvalid(fileName);
         }
 
-        final String contentType = MediaTypeFactory.getMediaType(fileName).map(MediaType::toString).orElse(null);
+        final Tika tika = new Tika();
+        final String contentType = tika.detect(file.getInputStream());
 
         final String objectId = reqObjectId == null ? UUID.randomUUID().toString() : reqObjectId;
         final MinioUserMetadata umd = MinioUserMetadata.builder()

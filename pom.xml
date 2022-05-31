@@ -12,13 +12,11 @@
     <groupId>cn.springseed.oss</groupId>
     <artifactId>parent</artifactId>
     <packaging>pom</packaging>
-    <version>1.0.0</version>
+    <version>1</version>
     <name>SpringSeed : OSS</name>
     <description>对象存储服务</description>
 
-    <properties>
-        <minio.version>8.4.1</minio.version>
-    </properties>
+
 
     <modules>
         <module>common</module>
@@ -29,9 +27,11 @@
     <dependencyManagement>
         <dependencies>
             <dependency>
-                <groupId>io.minio</groupId>
-                <artifactId>minio</artifactId>
-                <version>${minio.version}</version>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-dependencies</artifactId>
+                <version>${spring-boot.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
             </dependency>
         </dependencies>
     </dependencyManagement>
