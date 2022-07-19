@@ -1,0 +1,37 @@
+server:
+  servlet.context-path: /oss-minio
+  port: 9020
+
+spring:
+  application:
+    name: oss-minio-server
+  servlet:
+    # 文件上传
+    multipart:
+      enabled: true
+      max-file-size: 100MB
+      max-request-size: 200MB
+
+  security:
+    oauth2:
+      resourceserver:
+        jwt:
+          jwk-set-uri: http://springboot-embedded-server:9000/auth/realms/springseeds/protocol/openid-connect/certs
+
+marak.oss:
+  minio.server:
+    endpoint: 127.0.0.1
+    port: 8001
+    accessKey: admin
+    secretKey: 12345678
+
+# 日志配置
+logging:
+  level:
+    ROOT: INFO
+    "[cn.springseed]": DEBUG    
+    "[org.springframework.security]": DEBUG
+    "[org.springframework.web]": DEBUG
+
+
+

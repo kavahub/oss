@@ -1,0 +1,42 @@
+server:
+  servlet.context-path: /oss-local
+  port: 9020
+
+spring:
+  application:
+    name: oss-local-server
+  # JPA配置
+  jpa:
+    open-in-view: false
+    show-sql: true
+    format-sql: true
+  datasource:
+    url: jdbc:mysql://127.0.0.1:3306/oss?characterEncoding=UTF-8&useSSL=true
+    username: ossuser
+    password: ossuser    
+
+  servlet:
+    # 文件上传
+    multipart:
+      enabled: true
+      max-file-size: 100MB
+      max-request-size: 200MB
+
+  security:
+    oauth2:
+      resourceserver:
+        jwt:
+          # 需要在host文件中定义auth-server服务地址
+          jwk-set-uri: http://auth-server:9000/auth/realms/springseeds/protocol/openid-connect/certs
+
+# 日志配置
+logging:
+  level:
+    ROOT: INFO
+    "[cn.springseed]": DEBUG    
+    "[org.springframework.security]": DEBUG
+    "[org.springframework.web]": DEBUG
+
+marak.oss:
+  local.uploadRootPath: ${user.home}/.marak/oss
+
