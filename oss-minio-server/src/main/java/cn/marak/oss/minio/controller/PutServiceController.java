@@ -29,6 +29,7 @@ import cn.marak.oss.minio.util.SecurityUtils;
 @RestController
 @RequestMapping("/v1/putservice")
 public class PutServiceController {
+    private final Tika tika = new Tika();
     @Autowired
     private PutOptService putOptService;
 
@@ -55,14 +56,11 @@ public class PutServiceController {
             throw OSSMinioRuntimeException.fileNameInvalid(fileName);
         }
 
-        final Tika tika = new Tika();
-        final String mediaType = tika.detect(file.getInputStream());
-
-        final String objectId = reqObjectId == null ? IdUtil.getSnowflake().nextIdStr() : reqObjectId;
+        final String objectId = reqObjectId == null ? IdUtil.getSnowflakeNextIdStr() : reqObjectId;
         final MinioUserMetadata umd = MinioUserMetadata.builder()
                 .objectId(objectId)
                 .bucket(bucket)
-                .contentType(mediaType)
+                .contentType(tika.detect(file.getInputStream()))
                 .fileName(fileName)
                 .fileSize(file.getSize())
                 .createdBy(SecurityUtils.getCurrentUserInfo())

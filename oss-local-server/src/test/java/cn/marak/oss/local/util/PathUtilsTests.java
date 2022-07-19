@@ -5,10 +5,11 @@ import static org.assertj.core.api.Assertions.assertThat;
 import java.util.Comparator;
 import java.util.HashMap;
 import java.util.Map;
-import java.util.UUID;
 import java.util.stream.Collectors;
 
 import org.junit.jupiter.api.Test;
+
+import cn.hutool.core.util.IdUtil;
 
 /**
  * 测试
@@ -32,7 +33,7 @@ public class PathUtilsTests {
 
         final Map<String, Integer> count = new HashMap<>();
         for(int i = 0; i < OneMillion; i++) {
-            final String fileName = UUID.randomUUID().toString();
+            final String fileName = IdUtil.getSnowflakeNextIdStr();
             final String key = String.join(",", PathUtils.generalHashPath(fileName));
             Integer value = count.get(key);
             if (value == null) {

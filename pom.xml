@@ -24,6 +24,7 @@
         <maven.compiler.target>${java.version}</maven.compiler.target>
 
         <hutool.version>5.8.0.M1</hutool.version>
+        <tika-core.version>2.4.0</tika-core.version>
     </properties>
 
     <modules>
@@ -33,6 +34,12 @@
 
     <dependencyManagement>
         <dependencies>
+            <dependency>
+                <groupId>org.apache.tika</groupId>
+                <artifactId>tika-core</artifactId>
+                <version>${tika-core.version}</version>
+            </dependency>
+
             <dependency>
                 <groupId>cn.hutool</groupId>
                 <artifactId>hutool-bom</artifactId>

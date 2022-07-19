@@ -5,12 +5,12 @@ import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
 import java.io.IOException;
-import java.util.UUID;
 
 import org.springframework.core.io.ClassPathResource;
 import org.springframework.mock.web.MockMultipartFile;
 import org.springframework.test.web.servlet.MockMvc;
 
+import cn.hutool.core.util.IdUtil;
 import lombok.experimental.UtilityClass;
 
 /**
@@ -34,7 +34,7 @@ public class Util {
     }
 
     public String uploadFile(MockMvc mvc, String fileName) throws Exception, IOException {
-        String objectId = UUID.randomUUID().toString();
+        String objectId = IdUtil.getSnowflakeNextIdStr();
         mvc.perform(multipart("/v1/putservice/object/{bucket}", TEST_BUCKET)
                 .file(createMockMultipartFile(fileName))
                 .param("objectId", objectId))

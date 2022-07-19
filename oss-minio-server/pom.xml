@@ -15,7 +15,6 @@
     <description>基于MinIO的存储服务</description>
 
     <properties>
-        <tika-core.version>2.4.0</tika-core.version>
         <minio.version>8.4.1</minio.version>
         <!-- okhttp的版本有冲突-->
         <okhttp.version>4.8.1</okhttp.version>
@@ -25,7 +24,6 @@
         <dependency>
             <groupId>org.apache.tika</groupId>
             <artifactId>tika-core</artifactId>
-            <version>${tika-core.version}</version>
         </dependency>
 
         <dependency>

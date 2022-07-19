@@ -7,7 +7,7 @@
 | spring boot | 2.6.9          |
 | hutool      | 5.8.0.M1       |
 | modelmapper | 3.0.0          |
-| mtika-core  | 2.4.0          |
+| tika-core  | 2.4.0          |
 | minio       | 8.4.1          |
 
 #### 帮助

@@ -12,6 +12,7 @@ import java.util.stream.Collectors;
 
 import javax.annotation.PostConstruct;
 
+import org.apache.tika.Tika;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.io.Resource;
 import org.springframework.core.io.UrlResource;
@@ -38,6 +39,8 @@ import lombok.extern.slf4j.Slf4j;
 @Service
 @Slf4j
 public class FileSystemService {
+    private final Tika tika = new Tika();
+
     @Autowired
     private OSSProperties ossProperties;
     @Autowired
@@ -84,8 +87,7 @@ public class FileSystemService {
             }
 
             // 存储文件元数据
-            final Metadata metadata = metadataSaveService.save(fileName, Metadata.joinPath(filePath),
-                    file.getContentType(), file.getSize());
+            final Metadata metadata = metadataSaveService.save(fileName, Metadata.joinPath(filePath), tika.detect(file.getInputStream()), file.getSize());
 
             try (InputStream fileData = file.getInputStream()) {
                 // 存储文件
