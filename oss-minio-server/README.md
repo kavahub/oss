@@ -13,12 +13,12 @@ mvn clean install spring-boot:repackage
 
 如果有测试的MinIO服务器，可以测试：
 ```
-mvn clean install -Plive-test 
+mvn clean install
 ```
 
 运行:
 ``` 
-mvn spring-boot:run -Dspring-boot.run.profiles=dev
+mvn spring-boot:run
 ```
 
 #### 阿里云镜像服务
@@ -36,6 +36,6 @@ mvn compile jib:build -Pali-docker
 
 本地拉取并运行镜像
 ```
-docker run -p 9020:9020 --link mysql:mysql --link springboot-embedded-server:springboot-embedded-server --link minio:minio --name oss-minio-server -v C:\Users\wpw\s8d\oss:/s8d/oss -e "SPRING_PROFILES_ACTIVE=pro" -d registry.cn-hangzhou.aliyuncs.com/s8d/cn.springseed.oss.minio-server
+docker run -p 9020:9020 --link minio:minio --name oss-minio-server -v C:\Users\wpw\s8d\oss:/s8d/oss  -d registry.cn-hangzhou.aliyuncs.com/beidou/cn.marak.oss.minio-server
 ```
 

@@ -6,16 +6,16 @@
     <parent>
         <groupId>cn.marak.oss</groupId>
         <artifactId>parent</artifactId>
-        <version>0.0.1-SNAPSHOT</version>
+        <version>1</version>
     </parent>
 
     <artifactId>oss-minio-server</artifactId>
+    <version>8.4.1</version>
     <packaging>jar</packaging>
     <name>Marak : OSS : Minio-Server</name>
     <description>基于MinIO的存储服务</description>
 
     <properties>
-        <minio.version>8.4.1</minio.version>
         <!-- okhttp的版本有冲突-->
         <okhttp.version>4.8.1</okhttp.version>
     </properties>
@@ -29,7 +29,7 @@
         <dependency>
             <groupId>io.minio</groupId>
             <artifactId>minio</artifactId>
-            <version>${minio.version}</version>
+            <version>${project.version}</version>
         </dependency>
 
         <dependency>
@@ -52,7 +52,7 @@
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-oauth2-resource-server</artifactId>
         </dependency>
-        
+
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-actuator</artifactId>
@@ -83,6 +83,25 @@
         </dependency>
     </dependencies>
 
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-surefire-plugin</artifactId>
+                <configuration>
+                    <forkCount>3</forkCount>
+                    <reuseForks>true</reuseForks>
+                    <!-- 解决测试时读取文件乱码 -->
+                    <argLine>-Dfile.encoding=UTF-8</argLine>
+                    <excludes>
+                        <exclude>**/*ManualTests.java</exclude>
+                        <exclude>**/*LiveTests.java</exclude>
+                        <exclude>**/*IntegrationTests.java</exclude>
+                    </excludes>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
     <profiles>
         <profile>
             <id>ali-docker</id>

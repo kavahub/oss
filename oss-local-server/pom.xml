@@ -6,11 +6,12 @@
     <parent>
         <groupId>cn.marak.oss</groupId>
         <artifactId>parent</artifactId>
-        <version>0.0.1-SNAPSHOT</version>
+        <version>1</version>
     </parent>
 
     <artifactId>oss-local-server</artifactId>
     <packaging>jar</packaging>
+    <version>0.0.1-SNAPSHOT</version>
     <name>Marak : OSS : Local-Server</name>
     <description>基于本地文件系统的存储服务</description>
 

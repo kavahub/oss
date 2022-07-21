@@ -37,7 +37,7 @@ mvn clean install spring-boot:repackage
 #### 运行
 
 ``` 
-mvn spring-boot:run -Dspring-boot.run.profiles=dev
+mvn spring-boot:run
 ```
 
 #### 阿里云镜像服务
@@ -55,7 +55,7 @@ mvn compile jib:build -Pali-docker
 
 本地拉取并运行镜像
 ```
-docker run -p 9020:9020 --link mysql:mysql --name oss-local-server -v C:\Users\wpw\.marak\oss:/marak/oss -d registry.cn-hangzhou.aliyuncs.com/defualt/cn.marak.oss.local-server
+docker run -p 9020:9020 --link mysql:mysql --name oss-local-server -v C:\Users\wpw\.marak\oss:/marak/oss -d registry.cn-hangzhou.aliyuncs.com/beidou/cn.marak.oss.local-server
 ```
 
 

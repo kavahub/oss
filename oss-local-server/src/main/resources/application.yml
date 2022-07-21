@@ -27,7 +27,7 @@ spring:
       resourceserver:
         jwt:
           # 需要在host文件中定义auth-server服务地址
-          jwk-set-uri: http://auth-server:9000/auth/realms/springseeds/protocol/openid-connect/certs
+          jwk-set-uri: http://auth-server:9000/auth/realms/dubhe/protocol/openid-connect/certs
 
 # 日志配置
 logging:

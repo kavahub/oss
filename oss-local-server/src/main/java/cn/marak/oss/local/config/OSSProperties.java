@@ -16,7 +16,7 @@ import lombok.Setter;
  */
 @Getter
 @Setter
-@ConfigurationProperties("marak.oss")
+@ConfigurationProperties("marak.oss.local")
 public class OSSProperties {
     private Path uploadRootPath = Paths.get(System.getProperty("user.home"), ".marak", "oss");
 }
